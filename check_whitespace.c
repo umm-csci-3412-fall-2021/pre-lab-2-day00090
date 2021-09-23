@@ -66,6 +66,17 @@ int is_clean(char* str) {
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
   result = strcmp(str, cleaned);
+ 
+  /* MEMORY SOLUTION:
+   * This if statement determines whether a string is empty or
+   * not by checking it against an empty string. Should the string
+   * be empty, nothing happens. Should the string contain characters,
+   * the memory allocated to it shall be freed.
+   */
+  if(strcmp(cleaned, "") != 0 ){
+  	free(cleaned);
+  }
+  /*End if*/
 
   return result == 0;
 }
@@ -90,6 +101,6 @@ int main() {
       printf("The string '%s' is NOT clean.\n", strings[i]);
     }
   }
-
+  
   return 0;
 }
